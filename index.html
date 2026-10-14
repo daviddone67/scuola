@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Piano di studio</title>
+<meta name="description" content="Pianifica verifiche e interrogazioni, ripartisci il carico tra le materie e studia con il timer Pomodoro.">
+<meta name="theme-color" content="#3b5bff">
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="icon" href="assets/icon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,600;12..96,800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<main>
+<h1>Piano di studio</h1>
+<p class="sub" id="hi"></p>
+
+<div class="view on" id="v-oggi">
+  <div class="hero">
+    <div class="ring">
+      <svg viewBox="0 0 100 100"><circle cx="50" cy="50" r="44" fill="none" stroke="rgba(255,255,255,.22)" stroke-width="7"/><circle id="arc" cx="50" cy="50" r="44" fill="none" stroke="#ffc93c" stroke-width="7" stroke-linecap="round" stroke-dasharray="276.46" stroke-dashoffset="0"/></svg>
+      <div class="t"><div class="time" id="time" role="timer">10:00</div><div class="msg" id="msg">Scegli: 10 minuti per partire.</div></div>
+    </div>
+    <select id="tsub" aria-label="Materia che studi"></select>
+    <div class="row c"><button id="b10">Solo 10 minuti</button><button id="b25">Pomodoro 25</button><button class="g" id="bstop">Stop</button></div>
+  </div>
+  <h2>Da fare oggi</h2>
+  <div class="card" id="today"></div>
+</div>
+
+<div class="view" id="v-verifiche">
+  <h2>Aggiungi</h2>
+  <div class="card"><div class="row">
+    <input id="subj" placeholder="Materia (es. Storia)" aria-label="Materia">
+    <select id="type" aria-label="Tipo"><option value="verifica">Verifica</option><option value="interrogazione">Interrogazione</option><option value="compito">Compito</option></select>
+    <input id="date" type="date" aria-label="Data">
+    <select id="diff" aria-label="Difficoltà"><option value="3">Difficile per me</option><option value="2" selected>Media</option><option value="1">Facile</option></select>
+    <button id="add">Aggiungi</button></div><div class="empty" id="err"></div></div>
+  <h2>Le tue scadenze</h2>
+  <div id="exams"></div>
+</div>
+
+<div class="view" id="v-piano"><h2>Prossime settimane</h2><div class="card" id="plan"></div></div>
+
+<div class="view" id="v-stats">
+  <h2>I tuoi progressi</h2>
+  <div class="stats" id="stats"></div>
+  <h2>Minuti per materia (7 giorni)</h2>
+  <div class="card" id="bars"></div>
+  <h2>Maturità</h2>
+  <div class="card"><div class="row"><input id="mat" type="date" aria-label="Data prima prova"><button class="g" id="matok">Salva</button></div><p id="matt" style="margin:10px 0 0;font-weight:600"></p></div>
+</div>
+</main>
+
+<nav><button data-v="oggi" class="on">Oggi</button><button data-v="verifiche">Scadenze</button><button data-v="piano">Piano</button><button data-v="stats">Progressi</button></nav>
+
+<script src="js/app.js"></script>
+</body>
+</html>
